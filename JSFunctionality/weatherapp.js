@@ -6,15 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const temperature = document.getElementById("temperature");
   const description = document.getElementById("description");
   const weatherInfo = document.getElementById("weatherInfo");
-  const haze =
-    "C:/Users/HP/Desktop/weather app 2/weatherapp/Style/Assets/haze.jpg";
+  const haze = "../Style/Assets/haze.jpg";
   const defaultbackground1 = "../Style/Assets/background.jpg";
-  const brokenclouds =
-    "C:/Users/HP/Desktop/weather app 2/weatherapp/Style/Assets/broken-clouds.jpg";
-  const scattered_clouds =
-    "C:/Users/HP/Desktop/weather app 2/weatherapp/Style/Assets/scatteredclouds.jpg";
-  const clearClouds =
-    "C:/Users/HP/Desktop/weather app 2/weatherapp/Style/Assets/clearclouds.jpg";
+  const brokenclouds = "../Style/Assets/broken-clouds.jpg";
+  const scattered_clouds = "../Style/Assets/scatteredclouds.jpg";
+  const clearClouds = "../Style/Assets/clearclouds.jpg";
   getWeatherButton.addEventListener("click", () => {
     const city = cityInput.value;
     fetch(
