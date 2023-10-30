@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const myapikey = "37c8339f36af43bd39f250e4dca1a35f";
+  const apikey = "YOUR_WEATHER_APP_API_KEY";
   const getWeatherButton = document.getElementById("getWeatherButton");
   const cityInput = document.getElementById("cityInput");
   const cityName = document.getElementById("cityName");
@@ -8,8 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const weatherInfo = document.getElementById("weatherInfo");
   const haze =
     "C:/Users/HP/Desktop/weather app 2/weatherapp/Style/Assets/haze.jpg";
-  const background1 =
-    "C:/Users/HP/Desktop/weather app 2/weatherapp/Style/Assets/background.jpg";
+  const defaultbackground1 = "../Style/Assets/background.jpg";
   const brokenclouds =
     "C:/Users/HP/Desktop/weather app 2/weatherapp/Style/Assets/broken-clouds.jpg";
   const scattered_clouds =
@@ -19,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   getWeatherButton.addEventListener("click", () => {
     const city = cityInput.value;
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myapikey}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -40,11 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
           case "scattered clouds":
             backgroundImage = scattered_clouds;
             break;
-          case "clear":
+          case "clear sky":
             backgroundImage = clearClouds;
             break;
           default:
-            backgroundImage = background1;
+            backgroundImage = defaultbackground1;
         }
 
         // Create a style element and set the selected image as the background
