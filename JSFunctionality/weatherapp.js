@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const apikey = "YOUR_WEATHER_APP_API_KEY";
+  const apikey = "Your API key";
   const getWeatherButton = document.getElementById("getWeatherButton");
   const cityInput = document.getElementById("cityInput");
   const cityName = document.getElementById("cityName");
@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const clearClouds = "../Style/Assets/clearclouds.jpg";
   getWeatherButton.addEventListener("click", () => {
     const city = cityInput.value;
+
+    // debugger;
     fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`
     )
@@ -20,7 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((data) => {
         console.log(data);
         cityName.textContent = `City: ${data.name}`;
-        temperature.textContent = `Temperature: ${data.main.temp}°C`;
+        //Here's the formula to convert Kelvin to Celsius  ° C = K − 273.15
+        const temp1 = data.main.temp - 273.15;
+        temperature.textContent = `Temperature: ${temp1.toFixed(2)}°C`;
         description.textContent = `Weather: ${data.weather[0].description}`;
         weatherInfo.style.display = "block";
         let backgroundImage = "";
